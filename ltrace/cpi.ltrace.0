@@ -1,0 +1,15 @@
+MPI_Init(0x7ffd7cf84ddc, 0x7ffd7cf84dd0, 0x7ffd7cf84dd0, 0x5640e2808d48) = 0
+MPI_Comm_size(0x44000000, 0x7ffd7cf84df4, 2, 0xffffff) = 0
+MPI_Comm_rank(0x44000000, 0x7ffd7cf84df0, 2, 0xffffff) = 0
+MPI_Get_processor_name(0x7ffd7cf84e40, 0x7ffd7cf84df8, 0x7ffd7cf84df8, 0xffffff) = 0
+fprintf(0x7f034ccb95c0, "Process %d of %d is on %s\n", 0, 2, "LAPTOP-QV97NQLH") = 37
+fflush(0x7f034ccb95c0)                           = 0
+MPI_Wtime(0x7f034ccba710, 0, 0x7f034ccb9643, 0)  = 0x408ccc83c7fb3d09
+MPI_Bcast(0x7ffd7cf84dec, 1, 0x4c000405, 0)      = 0
+MPI_Reduce(0x7ffd7cf84e00, 0x7ffd7cf84e08, 1, 0x4c00080b) = 0
+MPI_Wtime(0, 264, 2, 4)                          = 0x408ccc8593e3b354
+printf("pi is approximately %.16f, Error"..., 3.141593, 0.000000) = 68
+printf("wall clock time = %f\n", 0.000877)       = 27
+fflush(0x7f034ccb95c0)                           = 0
+MPI_Finalize(0x7f034ccba710, 0, 0x7f034ccb9643, 0) = 0
++++ exited (status 0) +++

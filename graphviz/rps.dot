@@ -1,0 +1,18 @@
+digraph rpsls {
+    node [shape=circle]; scissors;
+    node [shape=circle]; paper;
+    node [shape=circle]; rock;
+    node [shape=circle]; lizard;
+    node [shape=circle]; spock;
+
+    scissors -> paper;
+    paper -> rock;
+    rock -> lizard;
+    lizard -> spock;
+    spock -> scissors;
+    scissors -> lizard;
+    lizard -> paper;
+    paper -> spock;
+    spock -> rock;
+    rock -> scissors;
+}
