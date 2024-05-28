@@ -7,7 +7,19 @@ https://xkcd.com/1053/
 Or maybe I get to be one of the lucky 10,000 if after seeing this you're all
 "hey did you know about ..." when you send a pull request on this project.
 
+Or maybe I can trigger Cunningham's Law:
+
+> The best way to get the right answer on the Internet is not to ask a question; it's to post the wrong answer
+
+-- Ward Cunningham
+
+I hope that me suggesting the way I do some of these things will trigger a
+bunch of "well actually you should really try...".   That would be a great
+outcome!
+
+
 * fun stuff with [gdb](gdb/README.md)
+* [code navigation](navigation/README.md)
 * [performance profiling](profiling/README.md) with gdb
 * [graphviz](graphviz/README.md) for programming
 * [shell things](shell/README.md)
