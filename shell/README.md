@@ -43,6 +43,27 @@ LOCAL_ENV=~/.zsh/env.`hostname -s`
 [ -f $LOCAL_ENV ] && . $LOCAL_ENV
 ```
 
+### Git and shell prompts
+
+`PS1` is the shell variable describing how the shell should display your prompt
+
+The `git-prompt.sh` script comes from git's
+[contrib/completion/](https://github.com/git/git/tree/master/contrib/completion)
+directory.  Quite a few settings to tweak the output but here's what I like:
+
+```
+source ${HOME}/.bash/git-prompt.sh
+export GIT_PS1_SHOWDIRTYSTATE=yes
+export GIT_PS1_SHOWSTASHSTATE=yes
+export GIT_PS1_SHOWUPSTREAM=auto
+export GIT_PS1_SHOWCONFLICTSTATE=yes
+export GIT_PS1_SHOWCOLORHINTS=yes
+
+export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+```
+
+
+
 ## Writing Shell scripts
 
 - add `set -eu` at the top of your scripts
