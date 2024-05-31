@@ -80,7 +80,8 @@ Each sample counts as 0.01 seconds.
 ```
 
 The program ran for 4 seconds but the profiler saw nothing.
-The "interrupt under gdb" approach, though catches this case
+The "interrupt under gdb" approach, though catches this case:
+![cgdb screenshot](writer.png "Look! interupting caught the program in the slow function")
 
 ## Use on real program
 
