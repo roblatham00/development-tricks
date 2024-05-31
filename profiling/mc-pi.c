@@ -34,7 +34,7 @@ double med_monte()
     unsigned seed;
     srand(getpid());
 
-    double nparts=1000000;
+    double nparts=100000;
 
     for (i=0; i<nparts; i++) {
 	x = (double)rand_r(&seed)/(double)RAND_MAX;
@@ -55,7 +55,7 @@ double large_monte()
     unsigned seed;
     srand(getpid());
 
-    double nparts=100000000;
+    double nparts=1000000;
 
     for (i=0; i<nparts; i++) {
 	x = (double)rand_r(&seed)/(double)RAND_MAX;
@@ -70,7 +70,12 @@ double large_monte()
 }
 int main(int argc, char **argv)
 {
-    for (int i=1; i<100000; i++) {
+#ifdef INTERACTIVE
+    int iterations = 10000;
+#else
+    int iterations = 1000;
+#endif
+    for (int i=1; i<1000; i++) {
         small_monte();
         med_monte();
         large_monte();
