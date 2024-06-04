@@ -7,6 +7,9 @@ this stuff, or apply it to whatever code you've got lying around)
   -tui).  I haven't come to love it myself.  If you use vim, try `cgdb` the
   "curses debugger" (https://cgdb.github.io/)
 
+- Iulian Grindeanu suggested [ddd](https://www.gnu.org/software/ddd/), a
+  graphical front-end to gdb.
+
 - Let's say your program is misbehaving and you want to figure out why.  Sure
   you can `sleep(3000)` to give you time to attach to it, but here's another
   way I learned from the book _21st Century C_ :  `raise(SIGSTOP)` will make

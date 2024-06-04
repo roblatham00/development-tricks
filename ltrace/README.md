@@ -28,3 +28,9 @@ MPI_Reduce(0x7fff3ea66590, 0x7fff3ea66598, 1, 0x4c00080b) = 0
 MPI_Finalize(0, 264, 2, 4)                       = 0
 +++ exited (status 0) +++
 ```
+
+You might have noticed that `MPI_Init` (which takes two arguments) and
+`MPI_Finalize` (which takes no arguments) were shown taking four.  That's a
+limitation of ltrace itself:  it will always print four values from the stack
+if it did not find that routine in an ltrace prototype config file (see
+https://stackoverflow.com/questions/48131925/how-does-ltrace-display-rand ) .

@@ -62,6 +62,11 @@ export GIT_PS1_SHOWCOLORHINTS=yes
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 ```
 
+### zsh themes
+
+Kyle Felker suggested taking a look at
+[powerlevel10k](https://github.com/romkatv/powerlevel10k), a theme for zsh with
+a ton of features
 
 
 ## Writing Shell scripts
@@ -180,3 +185,17 @@ END {
 % awk -f median.awk < input.in
 2.5
 ```
+
+## Interacting with the clipboard
+
+Kyle Felker and Bob Olson like the `pbcopy` utility to stuff text onto the macos clipboard and/or retrieve text from the clipboard.
+
+here's an example that would run text through a `sed` filter then stuff it onto the clipboard:
+
+```
+ sed 's/something/somethingelse/' | pbcopy
+```
+
+On Linux, the `xclip` and `xsel` utiliites allow you to do something similar.
+
+Another nice feature of these utilities is that they convert any formatting into plain text.
