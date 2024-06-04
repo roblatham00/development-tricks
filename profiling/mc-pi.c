@@ -70,11 +70,6 @@ double large_monte()
 }
 int main(int argc, char **argv)
 {
-#ifdef INTERACTIVE
-    int iterations = 10000;
-#else
-    int iterations = 1000;
-#endif
     for (int i=1; i<1000; i++) {
         small_monte();
         med_monte();

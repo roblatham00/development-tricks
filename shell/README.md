@@ -76,6 +76,8 @@ export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
           type $HOME not $HMOE, right?  So catch that error right away before  you try to
           delete that custom build of ls you installed in your home directory with `rm -rf ${HMOE}/bin/ls`
 
+- "What the heck is this script doing?":  run with "-xv" to echo every line and expand all variables
+
 ## symlink order
 
 Years ago at my first internship I was working in the computer lab and muttered
