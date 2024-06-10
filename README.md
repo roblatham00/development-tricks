@@ -27,7 +27,9 @@ outcome!
 * [learning never ends](learning/README.md)
 * [work-life balance](work-life-balance/README.md)
 
-I gave a presentation at work covering some of this: [MCS CS Seminar series](https://www.anl.gov/mcs/cs-seminar-series)
+I gave a presentation as part of the [MCS CS Seminar series](https://www.anl.gov/mcs/cs-seminar-series).
+You can get a copy of the [slides](latham-cs-seminar-development.pdf)
+or watch the [video recording](https://anl.app.box.com/s/9i0u33hflmnio0gsr14kcvh3voe4ucx1)
 
 ## Contributing
 
