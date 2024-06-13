@@ -1,4 +1,11 @@
-# ltrace: A library call tracer
+# Tracing programs
+
+While you can alway manually stuff instrumentation into your functions, our
+programs do not run in a vaccum.  Here are some tools that can help you
+understand better what is going on with your program and any dependencies your
+program might be calling.
+
+## ltrace: A library call tracer
 
 Behaves a lot like strace, except it prints library calls, not system calls
 (unless you pass the -S flag...).
@@ -58,3 +65,15 @@ MPI_Reduce(0x7fff9d12c430, 0x7fff9d12c438, 1, 1275070475, 1476395011, 0, 0x44000
 MPI_Finalize()                                   = 0
 +++ exited (status 0) +++
 ```
+
+## uftrace
+
+[uftrace](https://github.com/namhyung/uftrace) looks pretty slick, providing
+not just a text dump of what's called, but also tools to visualize the
+information.
+
+## bpftrace
+
+Linux (since the 4.x series) has a sophisticated tracing/instrumentation
+language called 'eBPF'.  [bpftrace](https://github.com/bpftrace/bpftrace).  It
+is perhaps challenging to use on HPC systems.
