@@ -68,6 +68,20 @@ Kyle Felker suggested taking a look at
 [powerlevel10k](https://github.com/romkatv/powerlevel10k), a theme for zsh with
 a ton of features
 
+## Navigating in the shell
+
+We "cd" (change directory) a lot.  Turns out there are some tools to make
+jumping between directories a bit more efficient.  I had no idea these tools
+existed and let me tell you they are a lot of fun.
+
+- Swann Perenau likes [autojump](https://github.com/wting/autojump).  Has a
+  python dependency which shouldn't be too hard to meet these days.
+- Robert Underwood likes a similar tool
+  [zoxide](https://github.com/ajeetdsouza/zoxide).  If your distribution or
+  environment doesn't provide it, you can build with rust toolchain.  I hooked
+  it into my shell without fzf (fewer dependencies) and telling it to call
+  itself 'cd'.
+
 
 ## Writing Shell scripts
 
@@ -199,3 +213,53 @@ here's an example that would run text through a `sed` filter then stuff it onto 
 On Linux, the `xclip` and `xsel` utiliites allow you to do something similar.
 
 Another nice feature of these utilities is that they convert any formatting into plain text.
+
+
+## reformating output
+
+If we write our own benchmarks we can reformat the output however we like, but
+sometimes we are trying to consume output from a tool we don't control.  Use
+`awk` (see above)!  Other suggestions from the audience and from
+https://stackoverflow.com/questions/76832364/usage-of-linux-column-utility
+
+### column
+
+Someone from CNS (please let me know your name) suggested the `column` tool,
+which I don't use very often.  For example, "-t" gives us a table, "-s :" says
+colons are the delimiters, and now the /etc/passwd file is a little more human
+readable:
+
+```
+$ column -t -s ':' </etc/passwd
+root                  x  0      0      root                                        /root                          /bin/bash
+daemon                x  1      1      daemon                                      /usr/sbin                      /usr/sbin/nologin
+bin                   x  2      2      bin                                         /bin                           /usr/sbin/nologin
+sys                   x  3      3      sys                                         /dev                           /usr/sbin/nologin
+...
+```
+
+### paste
+
+takes some number of files and outputs them row by row, resulting in
+interleaved output.  For example, take a list of words and output them three to
+a line. The '-' is stdin: since it is repeated, paste will pull from stdin in a
+round-robin fashion for column 1, 2, 3, etc:
+
+```
+% head -10 /usr/share/dict/words | paste - - -
+A       AA      AAA
+AA's    AB      ABC
+ABC's   ABCs    ABM
+ABM's
+```
+
+### rs
+
+"reshapes" output, so you could turn a list of things into multiple columns
+
+```
+% head -10 /usr/share/dict/words | rs 3 4
+A      AA     AAA    AA's
+AB     ABC    ABC's  ABCs
+ABM    ABM's
+```
