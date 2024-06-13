@@ -73,3 +73,9 @@ Algorithms_ covers it better than I ever could), but roughly speaking the tree
 should be balanced and if a node is red, its children are black.
 
 Tada! ![red-black tree](rb-tree.png "Rendering of a Red-black tree")
+
+## Alternatives to graphviz
+
+The idea of turning text into a diagram didn't stop with Graphviz. Robert
+Underwood suggested [d2](https://d2lang.com/) which has a few more features
+and entities related to software development 
