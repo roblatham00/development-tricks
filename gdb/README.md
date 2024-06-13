@@ -21,3 +21,6 @@ this stuff, or apply it to whatever code you've got lying around)
 
   is how I typically do it in e.g. an MPI program.  No need to mess with (or
   learn) "multi-process invocation" syntax.
+
+- Robert Underwood wrote [mpigdb](https://github.com/robertu94/mpigdb) to make
+  it even easier to interact with MPI programs.
