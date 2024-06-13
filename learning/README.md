@@ -52,3 +52,8 @@ In a world of video tutorials and blog posts, I still like a good bound book:
 
 - Julia Evans produces these great mini-writeups of complex topics https://wizardzines.com/
 - stackoverflow.com:  "people will do *anything* for fake internet points"
+
+### Other sites like this
+
+Turns out I'm not a unique snowflake:
+* Robert Underwood has a ton of tips, suggestions, and reccomendations: https://robertu94.github.io/
