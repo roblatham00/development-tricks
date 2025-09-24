@@ -5,6 +5,42 @@ programs do not run in a vaccum.  Here are some tools that can help you
 understand better what is going on with your program and any dependencies your
 program might be calling.
 
+## strace: the classic system call tracer
+
+Holy smokes, this utility has grown some features over the last few decades.  I
+don't even remember how I heard about strace but I do remember being fascinated
+by all the low-level machinery called from even a simple C program.
+
+There are lots of strace documents around -- it's a very old and very useful
+tool, so I won't write up a whole thing about it, but I did want to note the
+backracing feature.  I only recently learned about that feature while I was
+trying to figure out which routines were calling a certain system call (fcntl
+specifically but applies to anything).
+
+To report who is calling `fcntl()` and where/how, the '-k' option to strace
+will generate a stack trace for every call.  Since there's already a lot of
+output in strace, you probably want to limit which calls are printed.  The '-e'
+option takes an expression describing how strace should behave.  In our example
+we want to trace `fcntl` calls, which combined with -k will give us a backtrace
+of every fcntl call (and that's it):
+
+    strace -k -e t=fcntl your-program your-args
+
+Output looks like this:
+
+```
+fcntl(16, F_DUPFD_CLOEXEC, 0)           = 17
+ > /usr/lib/x86_64-linux-gnu/libc.so.6(fallocate+0x167) [0x11c797]
+ > /usr/lib/x86_64-linux-gnu/libc.so.6(__libc_fcntl64+0x45) [0x117015]
+ > /usr/bin/python3.12(_Py_dup+0x25) [0x2bb285]
+```
+
+The backtrace runs innermost to outermost, so `fcntl` was called by
+`fallocate`, which was called by `__libc_fcntl64`, which was called by
+`_Py_dup` (the python interpreter).  The backtrace goes on all the way to the
+end of the stack (or 256 levels whichever is less): you can limit that if you
+want with the `--stack-trace-frame-limit` option.
+
 ## ltrace: A library call tracer
 
 Behaves a lot like strace, except it prints library calls, not system calls
