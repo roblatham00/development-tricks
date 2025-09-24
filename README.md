@@ -23,7 +23,7 @@ outcome!
 * [performance profiling](profiling/README.md) with gdb
 * [graphviz](graphviz/README.md) for programming
 * [shell things](shell/README.md)
-* [ltrace](ltrace/README.md)
+* [tracing tools](tracing/README.md)
 * [learning never ends](learning/README.md)
 * [work-life balance](work-life-balance/README.md)
 
